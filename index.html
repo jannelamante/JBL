@@ -168,14 +168,14 @@
             <h3>Housekeeping NC II</h3>
             <p>Develop practical housekeeping skills for guest rooms, public areas, and hospitality environments.</p>
             <span class="duration">436 HOURS</span>
-            <a class="btn btn-primary reserve-link" href="#reservation" data-course="Housekeeping NC II">Reserve this course</a>
+            <a class="btn btn-primary reserve-link" href="https://docs.google.com/forms/d/13_Lfs4rAhhcsTwsM2qffZd9b_VcKExWxwHmaCvqPicw/edit" target="_blank" rel="noopener" data-course="Housekeeping NC II">Reserve this course</a>
           </article>
           <article class="course">
             <div class="course-icon" aria-hidden="true">💻</div>
             <h3>Computer Systems Servicing NC II</h3>
             <p>Learn core skills related to computer assembly, configuration, maintenance, and basic network setup.</p>
             <span class="duration">280 HOURS</span>
-            <a class="btn btn-primary reserve-link" href="#reservation" data-course="Computer Systems Servicing NC II">Reserve this course</a>
+            <a class="btn btn-primary reserve-link" href="https://docs.google.com/forms/d/1PEl_gmeqH9uXHCN-pP46xIUnNqQz5dcrJAdod2x_-ko/edit?usp=forms_home&ouid=112049839780093964217&ths=true" target="_blank" rel="noopener" data-course="Computer Systems Servicing NC II">Reserve this course</a>
           </article>
           <article class="course">
             <div class="course-icon" aria-hidden="true">🌿</div>
@@ -286,6 +286,7 @@
 
   <script>
     const housekeepingFormUrl = 'https://docs.google.com/forms/d/13_Lfs4rAhhcsTwsM2qffZd9b_VcKExWxwHmaCvqPicw/edit';
+    const computerSystemsFormUrl = 'https://docs.google.com/forms/d/1PEl_gmeqH9uXHCN-pP46xIUnNqQz5dcrJAdod2x_-ko/edit?usp=forms_home&ouid=112049839780093964217&ths=true';
     const academyEmail = 'jbl.technicalskills@gmail.com';
 
     function selectCourse(courseName) {
@@ -294,6 +295,16 @@
       const match = Array.from(select.options).find(option => option.textContent.startsWith(courseName));
       if (match) {
         select.value = match.value;
+      }
+    }
+
+    function openCourseForm(courseName) {
+      if (courseName === 'Housekeeping NC II') {
+        window.open(housekeepingFormUrl, '_blank', 'noopener,noreferrer');
+        return;
+      }
+      if (courseName === 'Computer Systems Servicing NC II') {
+        window.open(computerSystemsFormUrl, '_blank', 'noopener,noreferrer');
       }
     }
 
@@ -332,13 +343,16 @@
         const course = link.getAttribute('data-course');
         if (!course) return;
 
+        if (course === 'Housekeeping NC II' || course === 'Computer Systems Servicing NC II') {
+          event.preventDefault();
+          selectCourse(course);
+          openCourseForm(course);
+          return;
+        }
+
         event.preventDefault();
         selectCourse(course);
         scrollToReservation();
-
-        if (course === 'Housekeeping NC II') {
-          window.open(housekeepingFormUrl, '_blank', 'noopener,noreferrer');
-        }
       });
     });
 
@@ -353,6 +367,12 @@
       if (selectedCourse.startsWith('Housekeeping NC II')) {
         document.getElementById('formStatus').textContent = 'Opening the Housekeeping course form...';
         window.open(housekeepingFormUrl, '_blank', 'noopener,noreferrer');
+        return;
+      }
+
+      if (selectedCourse.startsWith('Computer Systems Servicing NC II')) {
+        document.getElementById('formStatus').textContent = 'Opening the Computer Systems Servicing course form...';
+        window.open(computerSystemsFormUrl, '_blank', 'noopener,noreferrer');
         return;
       }
 

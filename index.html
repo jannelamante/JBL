@@ -25,20 +25,20 @@
     header { background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); }
     .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 82px; }
     .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; min-width: 0; }
-    .logo { width: 54px; height: 54px; flex: 0 0 54px; display: block; border-radius: 0; background: transparent; border: 0; padding: 0; object-fit: contain; box-shadow: none; }
+    .logo { width: 54px; height: 54px; flex: 0 0 54px; display: block; margin: 0; padding: 0; border: none; border-radius: 0; background: transparent; object-fit: contain; box-shadow: none; }
     .brand-name { color: var(--navy); font-weight: 850; line-height: 1.2; font-size: 15px; letter-spacing: .2px; }
     .brand-name small { display: block; color: var(--muted); font-size: 11px; letter-spacing: 1.5px; margin-top: 4px; }
     nav { display: flex; align-items: center; gap: 24px; }
     nav a { font-size: 14px; font-weight: 650; text-decoration: none; color: #34445b; }
     nav a:hover { color: var(--blue); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; padding: 12px 19px; font-size: 14px; font-weight: 750; text-decoration: none; cursor: pointer; transition: .2s ease; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; padding: 12px 19px; font-size: 14px; font-weight: 750; text-decoration: none; cursor: pointer; transition: all .2s ease; }
     .btn:hover { transform: translateY(-1px); }
     .btn-primary { color: #fff; background: var(--blue); box-shadow: 0 8px 20px #174a8b2a; }
     .btn-primary:hover { background: var(--navy); }
     .btn-gold { color: var(--navy); background: var(--gold); }
     .btn-outline { color: var(--navy); border: 1px solid #cbd5e1; background: #fff; }
     .hero { overflow: hidden; background: radial-gradient(circle at 83% 20%, #275b9c 0, transparent 31%), linear-gradient(120deg, #081d42, #123d78 67%, #174a8b); color: white; position: relative; }
-    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 82px #ffffff05; }
+    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 78px #ffffff04; }
     .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 55px; padding-top: 88px; padding-bottom: 88px; position: relative; z-index: 1; }
     .eyebrow { color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 2.2px; font-weight: 850; }
     h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -1.8px; margin: 16px 0 20px; max-width: 700px; }
@@ -88,7 +88,7 @@
     textarea { resize: vertical; min-height: 100px; }
     .form-note { color: var(--muted); font-size: 12px; margin: 12px 0 18px; }
     .form-status { font-size: 13px; margin-top: 12px; color: var(--blue); }
-    .contact-strip { display: flex; justify-content: space-between; gap: 20px; align-items: center; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px 25px; margin-top: 24px; }
+    .contact-strip { display: flex; justify-content: space-between; gap: 20px; align-items: center; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px 25px; margin-top: 28px; }
     .contact-strip strong { color: var(--navy); }
     footer { background: #071832; color: #d4deed; padding: 28px 0; font-size: 13px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -119,7 +119,7 @@
  <header>
   <div class="container nav">
     <a href="#" class="brand">
-      <img src="Images/Jbl Logo 2.png" alt="Jbl logo 2" class="logo" style="object-fit: cover;">
+      <img src="Images/Jbl Logo 2.png" alt="Jbl logo 2" class="logo" style="object-fit: cover; margin: 0; border: 0; display: block;">
       <div class="brand-name">
         JBL TECHNICAL SKILLS ACADEMY
         <small>TESDA ACCREDITED PROGRAMS</small>
@@ -201,7 +201,7 @@
         <div class="about-copy">
           <div class="section-kicker">About the academy</div>
           <h2 class="section-title">Your next step starts here.</h2>
-          <p>JBL Technical Skills Academy, Inc. presents training options in hospitality, computer servicing, and wellness massage. Review the programs above and send us your details to express your interest. We welcome inquiries from students seeking practical training and a clearer path forward.</p>
+          <p>JBL Technical Skills Academy, Inc. presents training options in hospitality, computer servicing, and wellness massage. Review the programs above and send us your details to express your interest in enrollment.</p>
           <ul class="checks">
             <li>Three training programs to choose from</li>
             <li>Course duration clearly listed</li>

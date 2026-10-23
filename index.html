@@ -31,14 +31,14 @@
     nav { display: flex; align-items: center; gap: 24px; }
     nav a { font-size: 14px; font-weight: 650; text-decoration: none; color: #34445b; }
     nav a:hover { color: var(--blue); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; padding: 12px 19px; font-size: 14px; font-weight: 750; text-decoration: none; cursor: pointer; transition: transform .15s ease, background .2s ease, border-color .2s ease; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; padding: 12px 19px; font-size: 14px; font-weight: 750; text-decoration: none; cursor: pointer; transition: transform .15s ease, background-color .15s ease, box-shadow .15s ease; }
     .btn:hover { transform: translateY(-1px); }
     .btn-primary { color: #fff; background: var(--blue); box-shadow: 0 8px 20px #174a8b2a; }
     .btn-primary:hover { background: var(--navy); }
     .btn-gold { color: var(--navy); background: var(--gold); }
     .btn-outline { color: var(--navy); border: 1px solid #cbd5e1; background: #fff; }
     .hero { overflow: hidden; background: radial-gradient(circle at 83% 20%, #275b9c 0, transparent 31%), linear-gradient(120deg, #081d42, #123d78 67%, #174a8b); color: white; position: relative; }
-    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 90px #ffffff05; }
+    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 110px #ffffff06; }
     .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 55px; padding-top: 88px; padding-bottom: 88px; position: relative; z-index: 1; }
     .eyebrow { color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 2.2px; font-weight: 850; }
     h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -1.8px; margin: 16px 0 20px; max-width: 700px; }
@@ -47,8 +47,10 @@
     .hero .btn-outline { color: white; background: transparent; border-color: #ffffff65; }
     .hero-card { padding: 30px; background: #ffffff12; border: 1px solid #ffffff30; border-radius: 22px; backdrop-filter: blur(10px); box-shadow: 0 20px 60px #00000020; }
     .hero-card h2 { font-size: 19px; margin: 0 0 18px; }
-    .hero-stat { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid #ffffff25; }
+    .hero-stat { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid #ffffff25; text-decoration: none; color: inherit; }
     .hero-stat:last-child { border-bottom: 0; }
+    .hero-stat:hover { border-bottom-color: #ffffff45; }
+    .hero-stat:hover strong { color: var(--gold); }
     .stat-icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; color: var(--navy); background: var(--gold); font-size: 20px; flex: 0 0 42px; }
     .hero-stat strong { display: block; font-size: 15px; }
     .hero-stat span { display: block; color: #d3e1f5; font-size: 13px; }
@@ -66,7 +68,7 @@
     .course .btn { margin-top: auto; width: 100%; }
     .about { background: white; }
     .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 55px; align-items: center; }
-    .about-panel { background: linear-gradient(145deg, #0b2450, #174a8b); color: white; padding: 34px; border-radius: 22px; min-height: 280px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+    .about-panel { background: linear-gradient(145deg, #0b2450, #174a8b); color: white; padding: 34px; border-radius: 22px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
     .about-panel .big-mark { font-size: 48px; font-weight: 950; letter-spacing: -3px; color: var(--gold); }
     .about-panel p { color: #dce8f9; margin-bottom: 0; }
     .about-copy p { color: var(--muted); }
@@ -88,7 +90,7 @@
     textarea { resize: vertical; min-height: 100px; }
     .form-note { color: var(--muted); font-size: 12px; margin: 12px 0 18px; }
     .form-status { font-size: 13px; margin-top: 12px; color: var(--blue); }
-    .contact-strip { display: flex; justify-content: space-between; gap: 20px; align-items: center; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px 25px; margin-top: 28px; }
+    .contact-strip { display: flex; justify-content: space-between; gap: 20px; align-items: center; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px 25px; margin-top: 26px; }
     .contact-strip strong { color: var(--navy); }
     footer { background: #071832; color: #d4deed; padding: 28px 0; font-size: 13px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -148,9 +150,18 @@
         </div>
         <aside class="hero-card" aria-label="Training program highlights">
           <h2>Our Training Programs</h2>
-          <div class="hero-stat"><div class="stat-icon">✦</div><div><strong>Housekeeping NC II</strong><span>436 training hours</span></div></div>
-          <div class="hero-stat"><div class="stat-icon">⌘</div><div><strong>Computer Systems Servicing NC II</strong><span>280 training hours</span></div></div>
-          <div class="hero-stat"><div class="stat-icon">❋</div><div><strong>Hilot (Wellness Massage) NC II</strong><span>120 training hours</span></div></div>
+          <a class="hero-stat" href="#" data-course="Housekeeping NC II" aria-label="Reserve Housekeeping NC II">
+            <div class="stat-icon">✦</div>
+            <div><strong>Housekeeping NC II</strong><span>436 training hours</span></div>
+          </a>
+          <a class="hero-stat" href="#" data-course="Computer Systems Servicing NC II" aria-label="Reserve Computer Systems Servicing NC II">
+            <div class="stat-icon">⌘</div>
+            <div><strong>Computer Systems Servicing NC II</strong><span>280 training hours</span></div>
+          </a>
+          <a class="hero-stat" href="#" data-course="Hilot (Wellness Massage) NC II" aria-label="Reserve Hilot (Wellness Massage) NC II">
+            <div class="stat-icon">❋</div>
+            <div><strong>Hilot (Wellness Massage) NC II</strong><span>120 training hours</span></div>
+          </a>
         </aside>
       </div>
     </section>

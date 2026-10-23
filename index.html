@@ -31,14 +31,14 @@
     nav { display: flex; align-items: center; gap: 24px; }
     nav a { font-size: 14px; font-weight: 650; text-decoration: none; color: #34445b; }
     nav a:hover { color: var(--blue); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; padding: 12px 19px; font-size: 14px; font-weight: 750; text-decoration: none; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; padding: 12px 19px; font-size: 14px; font-weight: 750; text-decoration: none; cursor: pointer; transition: transform .18s ease, background .2s ease, box-shadow .2s ease; }
     .btn:hover { transform: translateY(-1px); }
     .btn-primary { color: #fff; background: var(--blue); box-shadow: 0 8px 20px #174a8b2a; }
     .btn-primary:hover { background: var(--navy); }
     .btn-gold { color: var(--navy); background: var(--gold); }
     .btn-outline { color: var(--navy); border: 1px solid #cbd5e1; background: #fff; }
     .hero { overflow: hidden; background: radial-gradient(circle at 83% 20%, #275b9c 0, transparent 31%), linear-gradient(120deg, #081d42, #123d78 67%, #174a8b); color: white; position: relative; }
-    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 90px #ffffff08; }
+    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 86px #ffffff08; }
     .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 55px; padding-top: 88px; padding-bottom: 88px; position: relative; z-index: 1; }
     .eyebrow { color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 2.2px; font-weight: 850; }
     h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -1.8px; margin: 16px 0 20px; max-width: 700px; }
@@ -66,7 +66,7 @@
     .course .btn { margin-top: auto; width: 100%; }
     .about { background: white; }
     .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 55px; align-items: center; }
-    .about-panel { background: linear-gradient(145deg, #0b2450, #174a8b); color: white; padding: 34px; border-radius: 22px; min-height: 280px; display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; }
+    .about-panel { background: linear-gradient(145deg, #0b2450, #174a8b); color: white; padding: 34px; border-radius: 22px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
     .about-panel .big-mark { font-size: 48px; font-weight: 950; letter-spacing: -3px; color: var(--gold); }
     .about-panel p { color: #dce8f9; margin-bottom: 0; }
     .about-copy p { color: var(--muted); }
@@ -88,7 +88,7 @@
     textarea { resize: vertical; min-height: 100px; }
     .form-note { color: var(--muted); font-size: 12px; margin: 12px 0 18px; }
     .form-status { font-size: 13px; margin-top: 12px; color: var(--blue); }
-    .contact-strip { display: flex; justify-content: space-between; gap: 20px; align-items: center; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px 25px; margin-top: 28px; }
+    .contact-strip { display: flex; justify-content: space-between; gap: 20px; align-items: center; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px 25px; margin-top: 24px; }
     .contact-strip strong { color: var(--navy); }
     footer { background: #071832; color: #d4deed; padding: 28px 0; font-size: 13px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -201,7 +201,7 @@
         <div class="about-copy">
           <div class="section-kicker">About the academy</div>
           <h2 class="section-title">Your next step starts here.</h2>
-          <p>JBL Technical Skills Academy, Inc. presents training options in hospitality, computer servicing, and wellness massage. Review the programs above and send us your details to express your interest in enrollment.</p>
+          <p>JBL Technical Skills Academy, Inc. presents training options in hospitality, computer servicing, and wellness massage. Review the programs above and send us your details to express your interest and begin the enrollment process.</p>
           <ul class="checks">
             <li>Three training programs to choose from</li>
             <li>Course duration clearly listed</li>
@@ -265,7 +265,7 @@
               </div>
             </div>
             <p class="form-note">Fields marked * are required. Submitting this form opens your default email app; you will still need to press Send in that app.</p>
-            <button class="btn btn-primary" type="submit">Send reservation inquiry&nbsp; →</button>
+            <button class="btn btn-primary" id="reservationSubmitBtn" type="submit">Send reservation inquiry&nbsp; →</button>
             <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
           </form>
         </div>
@@ -294,10 +294,19 @@
 
       document.getElementById('formStatus').textContent = 'Opening your email app. If nothing opens, a web mail window will appear.';
 
-      window.location.href = mailto;
+      const tempLink = document.createElement('a');
+      tempLink.href = mailto;
+      tempLink.style.display = 'none';
+      document.body.appendChild(tempLink);
+      tempLink.click();
+      tempLink.remove();
+
       window.setTimeout(function () {
-        window.open(gmailFallback, '_blank', 'noopener,noreferrer');
-      }, 1500);
+        const fallbackWindow = window.open(gmailFallback, '_blank', 'noopener,noreferrer');
+        if (!fallbackWindow) {
+          window.location.href = gmailFallback;
+        }
+      }, 1200);
     }
 
     document.getElementById('year').textContent = new Date().getFullYear();

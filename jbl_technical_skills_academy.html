@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JBL Technical Skills Academy, Inc. — TESDA training programs and student reservations.">
+  <title>JBL Technical Skills Academy, Inc.</title>
+  <style>
+    :root {
+      --navy: #0b2450;
+      --blue: #174a8b;
+      --gold: #e4b449;
+      --cream: #fffaf0;
+      --ink: #1c2a3b;
+      --muted: #65738a;
+      --white: #ffffff;
+      --line: #e2e8f0;
+      --shadow: 0 18px 45px rgba(11,36,80,.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, "Segoe UI", Arial, sans-serif; color: var(--ink); line-height: 1.6; background: #f7f9fc; }
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 36px)); margin: auto; }
+    header { background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 82px; }
+    .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; min-width: 0; }
+    .logo { width: 54px; height: 54px; flex: 0 0 54px; border-radius: 15px; display: grid; place-items: center; color: var(--navy); font-weight: 900; letter-spacing: -2px; font-size: 21px; background: linear-gradient(145deg, #fff5d8, var(--gold)); border: 2px solid #f0d58c; box-shadow: 0 4px 12px #0b245018; }
+    .brand-name { color: var(--navy); font-weight: 850; line-height: 1.2; font-size: 15px; letter-spacing: .2px; }
+    .brand-name small { display: block; color: var(--muted); font-size: 11px; letter-spacing: 1.5px; margin-top: 4px; }
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a { font-size: 14px; font-weight: 650; text-decoration: none; color: #34445b; }
+    nav a:hover { color: var(--blue); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; padding: 12px 19px; font-size: 14px; font-weight: 750; text-decoration: none; cursor: pointer; transition: transform .15s, background .15s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { color: #fff; background: var(--blue); box-shadow: 0 8px 20px #174a8b2a; }
+    .btn-primary:hover { background: var(--navy); }
+    .btn-gold { color: var(--navy); background: var(--gold); }
+    .btn-outline { color: var(--navy); border: 1px solid #cbd5e1; background: #fff; }
+    .hero { overflow: hidden; background: radial-gradient(circle at 83% 20%, #275b9c 0, transparent 31%), linear-gradient(120deg, #081d42, #123d78 67%, #174a8b); color: white; position: relative; }
+    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 78px #ffffff06; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 55px; padding-top: 88px; padding-bottom: 88px; position: relative; z-index: 1; }
+    .eyebrow { color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 2.2px; font-weight: 850; }
+    h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -1.8px; margin: 16px 0 20px; max-width: 700px; }
+    .hero p { color: #e0eaf8; font-size: 17px; max-width: 590px; margin: 0 0 28px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero .btn-outline { color: white; background: transparent; border-color: #ffffff65; }
+    .hero-card { padding: 30px; background: #ffffff12; border: 1px solid #ffffff30; border-radius: 22px; backdrop-filter: blur(10px); box-shadow: 0 20px 60px #00000020; }
+    .hero-card h2 { font-size: 19px; margin: 0 0 18px; }
+    .hero-stat { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid #ffffff25; }
+    .hero-stat:last-child { border-bottom: 0; }
+    .stat-icon { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; color: var(--navy); background: var(--gold); font-size: 20px; flex: 0 0 42px; }
+    .hero-stat strong { display: block; font-size: 15px; }
+    .hero-stat span { display: block; color: #d3e1f5; font-size: 13px; }
+    section { padding: 76px 0; }
+    .section-head { max-width: 690px; margin-bottom: 32px; }
+    .section-kicker { color: var(--blue); text-transform: uppercase; letter-spacing: 1.8px; font-size: 12px; font-weight: 850; }
+    h2.section-title { color: var(--navy); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.2; letter-spacing: -.8px; margin: 9px 0 12px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .courses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .course { background: white; border: 1px solid var(--line); border-radius: 17px; padding: 26px; box-shadow: 0 6px 20px #0b245008; display: flex; flex-direction: column; min-height: 300px; }
+    .course-icon { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 15px; background: #eaf1fc; font-size: 26px; margin-bottom: 20px; }
+    .course h3 { color: var(--navy); margin: 0 0 8px; font-size: 19px; line-height: 1.35; }
+    .course p { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+    .duration { color: var(--blue); background: #eef4ff; display: inline-flex; align-self: flex-start; padding: 6px 10px; border-radius: 7px; font-weight: 800; font-size: 12px; margin-bottom: 20px; }
+    .course .btn { margin-top: auto; width: 100%; }
+    .about { background: white; }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 55px; align-items: center; }
+    .about-panel { background: linear-gradient(145deg, #0b2450, #174a8b); color: white; padding: 34px; border-radius: 22px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: var(--shadow); }
+    .about-panel .big-mark { font-size: 48px; font-weight: 950; letter-spacing: -3px; color: var(--gold); }
+    .about-panel p { color: #dce8f9; margin-bottom: 0; }
+    .about-copy p { color: var(--muted); }
+    .checks { padding: 0; margin: 20px 0 0; list-style: none; display: grid; gap: 11px; }
+    .checks li:before { content: "✓"; color: #0b8b62; font-weight: 900; margin-right: 10px; }
+    .reservation { background: var(--cream); }
+    .reservation-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 38px; align-items: start; }
+    .reservation-info { background: var(--navy); color: white; padding: 30px; border-radius: 18px; }
+    .reservation-info h3 { margin-top: 0; font-size: 22px; }
+    .reservation-info p { color: #d5e2f4; font-size: 14px; }
+    .email { overflow-wrap: anywhere; color: var(--gold); font-weight: 750; }
+    form { background: white; border: 1px solid var(--line); border-radius: 18px; padding: 30px; box-shadow: var(--shadow); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 17px; }
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-size: 13px; color: #334155; font-weight: 750; }
+    input, select, textarea { width: 100%; font: inherit; color: var(--ink); background: #fbfcfe; border: 1px solid #cfd8e5; border-radius: 8px; padding: 12px 13px; outline: none; }
+    input:focus, select:focus, textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px #174a8b18; }
+    textarea { resize: vertical; min-height: 100px; }
+    .form-note { color: var(--muted); font-size: 12px; margin: 12px 0 18px; }
+    .form-status { font-size: 13px; margin-top: 12px; color: var(--blue); }
+    .contact-strip { display: flex; justify-content: space-between; gap: 20px; align-items: center; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px 25px; margin-top: 28px; }
+    .contact-strip strong { color: var(--navy); }
+    footer { background: #071832; color: #d4deed; padding: 28px 0; font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    footer a { color: var(--gold); text-decoration: none; }
+    @media (max-width: 850px) {
+      nav { gap: 13px; } nav a:not(.btn) { display: none; }
+      .hero-grid, .about-grid, .reservation-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-grid { padding-top: 60px; padding-bottom: 60px; }
+      .hero-card { max-width: 520px; }
+      .courses { grid-template-columns: 1fr 1fr; }
+      .about-grid { gap: 28px; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(100% - 26px, 1120px); }
+      .nav { min-height: 72px; } .logo { width: 45px; height: 45px; flex-basis: 45px; }
+      .brand-name { font-size: 12px; } .brand-name small { font-size: 9px; }
+      nav .btn { padding: 10px 12px; font-size: 12px; }
+      .courses { grid-template-columns: 1fr; }
+      section { padding: 55px 0; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      form, .reservation-info { padding: 22px; }
+      .contact-strip { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="JBL Technical Skills Academy home">
+        <div class="logo" aria-hidden="true">JBL</div>
+        <div class="brand-name">JBL TECHNICAL SKILLS ACADEMY, INC.<small>SKILLS • TRAINING • OPPORTUNITY</small></div>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#programs">Programs</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" href="#reservation">Reserve a Slot</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Build skills. Create opportunities.</div>
+          <h1>Learn practical skills for your next opportunity.</h1>
+          <p>Start your skills-training journey with JBL Technical Skills Academy, Inc. Explore our training programs and send a reservation inquiry online.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#programs">Explore Programs&nbsp; →</a>
+            <a class="btn btn-outline" href="#reservation">Reserve a Slot</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Training program highlights">
+          <h2>Our Training Programs</h2>
+          <div class="hero-stat"><div class="stat-icon">✦</div><div><strong>Housekeeping NC II</strong><span>436 training hours</span></div></div>
+          <div class="hero-stat"><div class="stat-icon">⌘</div><div><strong>Computer Systems Servicing NC II</strong><span>280 training hours</span></div></div>
+          <div class="hero-stat"><div class="stat-icon">❋</div><div><strong>Hilot (Wellness Massage) NC II</strong><span>120 training hours</span></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="programs">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Find your program</div>
+          <h2 class="section-title">Training programs</h2>
+          <p>Choose the course that fits your interests and submit a reservation inquiry. Our team can follow up with details about enrollment and requirements.</p>
+        </div>
+        <div class="courses">
+          <article class="course">
+            <div class="course-icon" aria-hidden="true">🛎️</div>
+            <h3>Housekeeping NC II</h3>
+            <p>Develop practical housekeeping skills for guest rooms, public areas, and hospitality environments.</p>
+            <span class="duration">436 HOURS</span>
+            <a class="btn btn-primary" href="#reservation" data-course="Housekeeping NC II">Reserve this course</a>
+          </article>
+          <article class="course">
+            <div class="course-icon" aria-hidden="true">💻</div>
+            <h3>Computer Systems Servicing NC II</h3>
+            <p>Learn core skills related to computer assembly, configuration, maintenance, and basic network setup.</p>
+            <span class="duration">280 HOURS</span>
+            <a class="btn btn-primary" href="#reservation" data-course="Computer Systems Servicing NC II">Reserve this course</a>
+          </article>
+          <article class="course">
+            <div class="course-icon" aria-hidden="true">🌿</div>
+            <h3>Hilot (Wellness Massage) NC II</h3>
+            <p>Build foundational skills in wellness massage practices, client care, and a professional service setting.</p>
+            <span class="duration">120 HOURS</span>
+            <a class="btn btn-primary" href="#reservation" data-course="Hilot (Wellness Massage) NC II">Reserve this course</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <div class="big-mark">JBL</div>
+          <div>
+            <div class="eyebrow">Skills for a brighter future</div>
+            <h2 style="font-size:27px;line-height:1.2;margin:10px 0;">Learn with purpose.</h2>
+            <p>Practical training designed to help you prepare for opportunities in your chosen field.</p>
+          </div>
+        </div>
+        <div class="about-copy">
+          <div class="section-kicker">About the academy</div>
+          <h2 class="section-title">Your next step starts here.</h2>
+          <p>JBL Technical Skills Academy, Inc. presents training options in hospitality, computer servicing, and wellness massage. Review the programs above and send us your details to express your interest.</p>
+          <ul class="checks">
+            <li>Three training programs to choose from</li>
+            <li>Course duration clearly listed</li>
+            <li>Online reservation inquiry form</li>
+            <li>Follow-up through the academy's email address</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="reservation" id="reservation">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Take the next step</div>
+          <h2 class="section-title">Reserve your training slot</h2>
+          <p>Complete the form below. Your email application will open with your reservation details addressed to the academy.</p>
+        </div>
+        <div class="reservation-grid">
+          <aside class="reservation-info" id="contact">
+            <h3>Contact JBL Academy</h3>
+            <p>Have questions about a course or enrollment? Send an inquiry and our team can get back to you.</p>
+            <p><strong>Email</strong><br><a class="email" href="mailto:jbl.technicalskills@gmail.com">jbl.technicalskills@gmail.com</a></p>
+            <p><strong>Available programs</strong><br>Housekeeping NC II<br>Computer Systems Servicing NC II<br>Hilot (Wellness Massage) NC II</p>
+          </aside>
+          <form id="reservationForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="fullName">Full name *</label>
+                <input id="fullName" name="fullName" autocomplete="name" required placeholder="Enter your full name">
+              </div>
+              <div class="field">
+                <label for="phone">Contact number *</label>
+                <input id="phone" name="phone" autocomplete="tel" type="tel" required placeholder="e.g. 09XX XXX XXXX">
+              </div>
+              <div class="field">
+                <label for="email">Email address *</label>
+                <input id="email" name="email" autocomplete="email" type="email" required placeholder="you@example.com">
+              </div>
+              <div class="field">
+                <label for="course">Training program *</label>
+                <select id="course" name="course" required>
+                  <option value="">Choose a program</option>
+                  <option>Housekeeping NC II — 436 hours</option>
+                  <option>Computer Systems Servicing NC II — 280 hours</option>
+                  <option>Hilot (Wellness Massage) NC II — 120 hours</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="preferredDate">Preferred start date</label>
+                <input id="preferredDate" name="preferredDate" type="date">
+              </div>
+              <div class="field">
+                <label for="contactMethod">Preferred contact method</label>
+                <select id="contactMethod" name="contactMethod">
+                  <option>Email</option><option>Phone call</option><option>Text message</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="message">Questions or additional details</label>
+                <textarea id="message" name="message" placeholder="Tell us anything you would like the academy to know."></textarea>
+              </div>
+            </div>
+            <p class="form-note">Fields marked * are required. Submitting this form opens your default email app; you will still need to press Send in that app.</p>
+            <button class="btn btn-primary" type="submit">Send reservation inquiry&nbsp; →</button>
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+        <div class="contact-strip">
+          <div><strong>Ready to begin?</strong><br><span style="color:var(--muted);font-size:14px;">Choose a program and send us your reservation inquiry.</span></div>
+          <a class="btn btn-gold" href="mailto:jbl.technicalskills@gmail.com?subject=Training%20Program%20Inquiry">Email the academy</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> JBL Technical Skills Academy, Inc. All rights reserved.</span>
+      <span>Contact: <a href="mailto:jbl.technicalskills@gmail.com">jbl.technicalskills@gmail.com</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('[data-course]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        const course = link.getAttribute('data-course');
+        const select = document.getElementById('course');
+        const match = Array.from(select.options).find(option => option.textContent.startsWith(course));
+        if (match) select.value = match.value;
+      });
+    });
+
+    document.getElementById('reservationForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      if (!form.reportValidity()) return;
+
+      const data = new FormData(form);
+      const subject = 'Training Reservation Inquiry - ' + data.get('course');
+      const body = [
+        'JBL TECHNICAL SKILLS ACADEMY, INC. — RESERVATION INQUIRY',
+        '',
+        'Full name: ' + data.get('fullName'),
+        'Contact number: ' + data.get('phone'),
+        'Email address: ' + data.get('email'),
+        'Training program: ' + data.get('course'),
+        'Preferred start date: ' + (data.get('preferredDate') || 'Not specified'),
+        'Preferred contact method: ' + data.get('contactMethod'),
+        '',
+        'Questions or additional details:',
+        data.get('message') || 'None provided'
+      ].join('\n');
+
+      const mailto = 'mailto:jbl.technicalskills@gmail.com?subject=' +
+        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      document.getElementById('formStatus').textContent =
+        'Your email app should open with the details prepared. Please review and press Send to submit your inquiry.';
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>

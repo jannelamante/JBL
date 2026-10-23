@@ -25,7 +25,7 @@
     header { background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); }
     .nav { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 82px; }
     .brand { display: flex; align-items: center; gap: 13px; text-decoration: none; min-width: 0; }
-    .logo { width: 54px; height: 54px; flex: 0 0 54px; display: block; margin: 0; padding: 0; border: none; border-radius: 0; background: transparent; object-fit: contain; box-shadow: none; }
+    .logo { width: 58px; height: auto; max-height: 58px; flex: 0 0 58px; display: block; margin: 0; padding: 0; border: none; border-radius: 0; background: transparent; object-fit: contain; box-shadow: none; }
     .brand-name { color: var(--navy); font-weight: 850; line-height: 1.2; font-size: 15px; letter-spacing: .2px; }
     .brand-name small { display: block; color: var(--muted); font-size: 11px; letter-spacing: 1.5px; margin-top: 4px; }
     nav { display: flex; align-items: center; gap: 24px; }
@@ -38,7 +38,7 @@
     .btn-gold { color: var(--navy); background: var(--gold); }
     .btn-outline { color: var(--navy); border: 1px solid #cbd5e1; background: #fff; }
     .hero { overflow: hidden; background: radial-gradient(circle at 83% 20%, #275b9c 0, transparent 31%), linear-gradient(120deg, #081d42, #123d78 67%, #174a8b); color: white; position: relative; }
-    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 78px #ffffff04; }
+    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 84px #ffffff04; }
     .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 55px; padding-top: 88px; padding-bottom: 88px; position: relative; z-index: 1; }
     .eyebrow { color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 2.2px; font-weight: 850; }
     h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -1.8px; margin: 16px 0 20px; max-width: 700px; }
@@ -66,7 +66,7 @@
     .course .btn { margin-top: auto; width: 100%; }
     .about { background: white; }
     .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 55px; align-items: center; }
-    .about-panel { background: linear-gradient(145deg, #0b2450, #174a8b); color: white; padding: 34px; border-radius: 22px; min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+    .about-panel { background: linear-gradient(145deg, #0b2450, #174a8b); color: white; padding: 34px; border-radius: 22px; min-height: 280px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
     .about-panel .big-mark { font-size: 48px; font-weight: 950; letter-spacing: -3px; color: var(--gold); }
     .about-panel p { color: #dce8f9; margin-bottom: 0; }
     .about-copy p { color: var(--muted); }
@@ -103,7 +103,7 @@
     }
     @media (max-width: 560px) {
       .container { width: min(100% - 26px, 1120px); }
-      .nav { min-height: 72px; } .logo { width: 45px; height: 45px; flex-basis: 45px; }
+      .nav { min-height: 72px; } .logo { width: 45px; height: auto; max-height: 45px; flex-basis: 45px; }
       .brand-name { font-size: 12px; } .brand-name small { font-size: 9px; }
       nav .btn { padding: 10px 12px; font-size: 12px; }
       .courses { grid-template-columns: 1fr; }
@@ -116,15 +116,15 @@
   </style>
 </head>
 <body>
- <header>
-  <div class="container nav">
-    <a href="#" class="brand">
-      <img src="Images/Jbl Logo 2.png" alt="Jbl logo 2" class="logo" style="object-fit: cover; margin: 0; border: 0; display: block;">
-      <div class="brand-name">
-        JBL TECHNICAL SKILLS ACADEMY
-        <small>TESDA ACCREDITED PROGRAMS</small>
-      </div>
-    </a>
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">
+        <img src="Images/Jbl Logo 2.png" alt="JBL logo" class="logo">
+        <div class="brand-name">
+          JBL TECHNICAL SKILLS ACADEMY
+          <small>TESDA ACCREDITED PROGRAMS</small>
+        </div>
+      </a>
       <nav aria-label="Main navigation">
         <a href="#programs">Programs</a>
         <a href="#about">About</a>
@@ -201,7 +201,7 @@
         <div class="about-copy">
           <div class="section-kicker">About the academy</div>
           <h2 class="section-title">Your next step starts here.</h2>
-          <p>JBL Technical Skills Academy, Inc. presents training options in hospitality, computer servicing, and wellness massage. Review the programs above and send us your details to express your interest in enrollment.</p>
+          <p>JBL Technical Skills Academy, Inc. presents training options in hospitality, computer servicing, and wellness massage. Review the programs above and send us your details to express your interest and request more information.</p>
           <ul class="checks">
             <li>Three training programs to choose from</li>
             <li>Course duration clearly listed</li>

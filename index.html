@@ -31,14 +31,14 @@
     nav { display: flex; align-items: center; gap: 24px; }
     nav a { font-size: 14px; font-weight: 650; text-decoration: none; color: #34445b; }
     nav a:hover { color: var(--blue); }
-    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; padding: 12px 19px; font-size: 14px; font-weight: 750; text-decoration: none; cursor: pointer; transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: 9px; padding: 12px 19px; font-size: 14px; font-weight: 750; text-decoration: none; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
     .btn:hover { transform: translateY(-1px); }
     .btn-primary { color: #fff; background: var(--blue); box-shadow: 0 8px 20px #174a8b2a; }
     .btn-primary:hover { background: var(--navy); }
     .btn-gold { color: var(--navy); background: var(--gold); }
     .btn-outline { color: var(--navy); border: 1px solid #cbd5e1; background: #fff; }
     .hero { overflow: hidden; background: radial-gradient(circle at 83% 20%, #275b9c 0, transparent 31%), linear-gradient(120deg, #081d42, #123d78 67%, #174a8b); color: white; position: relative; }
-    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 88px #ffffff06; }
+    .hero:after { content: ""; position: absolute; width: 420px; height: 420px; border: 1px solid #ffffff22; border-radius: 50%; right: -120px; bottom: -230px; box-shadow: 0 0 0 38px #ffffff08, 0 0 0 80px #ffffff06; }
     .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 55px; padding-top: 88px; padding-bottom: 88px; position: relative; z-index: 1; }
     .eyebrow { color: var(--gold); font-size: 12px; text-transform: uppercase; letter-spacing: 2.2px; font-weight: 850; }
     h1 { font-size: clamp(36px, 5vw, 58px); line-height: 1.08; letter-spacing: -1.8px; margin: 16px 0 20px; max-width: 700px; }
@@ -59,7 +59,7 @@
     .section-kicker { color: var(--blue); text-transform: uppercase; letter-spacing: 1.8px; font-size: 12px; font-weight: 850; }
     h2.section-title { color: var(--navy); font-size: clamp(28px, 3.5vw, 40px); line-height: 1.2; letter-spacing: -.8px; margin: 9px 0 12px; }
     .section-head p { color: var(--muted); margin: 0; }
-    .courses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .courses { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .course { background: white; border: 1px solid var(--line); border-radius: 17px; padding: 26px; box-shadow: 0 6px 20px #0b245008; display: flex; flex-direction: column; min-height: 300px; }
     .course-icon { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 15px; background: #eaf1fc; font-size: 26px; margin-bottom: 20px; }
     .course h3 { color: var(--navy); margin: 0 0 8px; font-size: 19px; line-height: 1.35; }
@@ -68,7 +68,7 @@
     .course .btn { margin-top: auto; width: 100%; }
     .about { background: white; }
     .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 55px; align-items: center; }
-    .about-panel { background: linear-gradient(145deg, #0b2450, #174a8b); color: white; padding: 34px; border-radius: 22px; min-height: 280px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+    .about-panel { background: linear-gradient(145deg, #0b2450, #174a8b); color: white; padding: 34px; border-radius: 22px; min-height: 280px; display: flex; flex-direction: column; justify-content: center; }
     .about-panel .big-mark { font-size: 48px; font-weight: 950; letter-spacing: -3px; color: var(--gold); }
     .about-panel p { color: #dce8f9; margin-bottom: 0; }
     .about-copy p { color: var(--muted); }
@@ -90,7 +90,7 @@
     textarea { resize: vertical; min-height: 100px; }
     .form-note { color: var(--muted); font-size: 12px; margin: 12px 0 18px; }
     .form-status { font-size: 13px; margin-top: 12px; color: var(--blue); }
-    .contact-strip { display: flex; justify-content: space-between; gap: 20px; align-items: center; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px 25px; margin-top: 24px; }
+    .contact-strip { display: flex; justify-content: space-between; gap: 20px; align-items: center; background: white; border: 1px solid var(--line); border-radius: 14px; padding: 22px 25px; margin-top: 26px; }
     .contact-strip strong { color: var(--navy); }
     footer { background: #071832; color: #d4deed; padding: 28px 0; font-size: 13px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -100,7 +100,7 @@
       .hero-grid, .about-grid, .reservation-grid { grid-template-columns: 1fr; gap: 28px; }
       .hero-grid { padding-top: 60px; padding-bottom: 60px; }
       .hero-card { max-width: 520px; }
-      .courses { grid-template-columns: 1fr 1fr; }
+      .courses { grid-template-columns: 1fr; }
       .about-grid { gap: 28px; }
     }
     @media (max-width: 560px) {
@@ -108,7 +108,6 @@
       .nav { min-height: 72px; } .logo { width: 45px; height: 45px; flex-basis: 45px; }
       .brand-name { font-size: 12px; } .brand-name small { font-size: 9px; }
       nav .btn { padding: 10px 12px; font-size: 12px; }
-      .courses { grid-template-columns: 1fr; }
       section { padding: 55px 0; }
       .form-grid { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
@@ -158,10 +157,6 @@
             <div class="stat-icon">⌘</div>
             <div><strong>Computer Systems Servicing NC II</strong><span>280 training hours</span></div>
           </a>
-          <a class="hero-stat" href="#" data-course="Hilot (Wellness Massage) NC II" aria-label="Reserve Hilot (Wellness Massage) NC II">
-            <div class="stat-icon">❋</div>
-            <div><strong>Hilot (Wellness Massage) NC II</strong><span>120 training hours</span></div>
-          </a>
         </aside>
       </div>
     </section>
@@ -179,21 +174,14 @@
             <h3>Housekeeping NC II</h3>
             <p>Develop practical housekeeping skills for guest rooms, public areas, and hospitality environments.</p>
             <span class="duration">436 HOURS</span>
-            <a class="btn btn-primary reserve-link" href="https://docs.google.com/forms/d/13_Lfs4rAhhcsTwsM2qffZd9b_VcKExWxwHmaCvqPicw/edit" target="_blank" rel="noopener" data-course="Housekeeping NC II">Reserve this course</a>
+            <a class="btn btn-primary reserve-link" href="https://docs.google.com/forms/d/13_Lfs4rAhhcsTwsM2qffZd9b_VcKExWxwHmaCvqPicw/edit" target="_blank" rel="noopener" data-course="Housekeeping NC II">Reserve This Course</a>
           </article>
           <article class="course">
             <div class="course-icon" aria-hidden="true">💻</div>
             <h3>Computer Systems Servicing NC II</h3>
             <p>Learn core skills related to computer assembly, configuration, maintenance, and basic network setup.</p>
             <span class="duration">280 HOURS</span>
-            <a class="btn btn-primary reserve-link" href="https://docs.google.com/forms/d/1PEl_gmeqH9uXHCN-pP46xIUnNqQz5dcrJAdod2x_-ko/edit?usp=forms_home&ouid=112049839780093964217&ths=true" target="_blank" rel="noopener" data-course="Computer Systems Servicing NC II">Reserve this course</a>
-          </article>
-          <article class="course">
-            <div class="course-icon" aria-hidden="true">🌿</div>
-            <h3>Hilot (Wellness Massage) NC II</h3>
-            <p>Build foundational skills in wellness massage practices, client care, and a professional service setting.</p>
-            <span class="duration">120 HOURS</span>
-            <a class="btn btn-primary reserve-link" href="https://docs.google.com/forms/d/154L4q9KBYXxq1mGQAHb2YPH0M8N9cLYzz0ZfL9Zja2I/edit" target="_blank" rel="noopener" data-course="Hilot (Wellness Massage) NC II">Reserve this course</a>
+            <a class="btn btn-primary reserve-link" href="https://docs.google.com/forms/d/1PEl_gmeqH9uXHCN-pP46xIUnNqQz5dcrJAdod2x_-ko/edit?usp=forms_home&ouid=112049839780093964217&ths=true" target="_blank" rel="noopener" data-course="Computer Systems Servicing NC II">Reserve This Course</a>
           </article>
         </div>
       </div>
@@ -212,9 +200,9 @@
         <div class="about-copy">
           <div class="section-kicker">About the academy</div>
           <h2 class="section-title">Your next step starts here.</h2>
-          <p>JBL Technical Skills Academy, Inc. presents training options in hospitality, computer servicing, and wellness massage. Review the programs above and send us your details to express your interest in enrollment.</p>
+          <p>JBL Technical Skills Academy, Inc. presents training options in hospitality and computer servicing. Review the programs above and send us your details to express your interest and learn more about enrollment.</p>
           <ul class="checks">
-            <li>Three training programs to choose from</li>
+            <li>Two training programs to choose from</li>
             <li>Course duration clearly listed</li>
             <li>Online reservation inquiry form</li>
             <li>Follow-up through the academy's email address</li>
@@ -235,7 +223,7 @@
             <h3>Contact JBL Academy</h3>
             <p>Have questions about a course or enrollment? Send an inquiry and our team can get back to you.</p>
             <p><strong>Email</strong><br><a class="email" href="mailto:jbl.technicalskills@gmail.com">jbl.technicalskills@gmail.com</a></p>
-            <p><strong>Available programs</strong><br>Housekeeping NC II<br>Computer Systems Servicing NC II<br>Hilot (Wellness Massage) NC II</p>
+            <p><strong>Available programs</strong><br>Housekeeping NC II<br>Computer Systems Servicing NC II</p>
           </aside>
           <form id="reservationForm">
             <div class="form-grid">
@@ -257,7 +245,6 @@
                   <option value="">Choose a program</option>
                   <option>Housekeeping NC II — 436 hours</option>
                   <option>Computer Systems Servicing NC II — 280 hours</option>
-                  <option>Hilot (Wellness Massage) NC II — 120 hours</option>
                 </select>
               </div>
               <div class="field">
@@ -299,7 +286,6 @@
     const academyEmail = 'jbl.technicalskills@gmail.com';
     const housekeepingFormUrl = 'https://docs.google.com/forms/d/13_Lfs4rAhhcsTwsM2qffZd9b_VcKExWxwHmaCvqPicw/edit';
     const computerSystemsFormUrl = 'https://docs.google.com/forms/d/1PEl_gmeqH9uXHCN-pP46xIUnNqQz5dcrJAdod2x_-ko/edit?usp=forms_home&ouid=112049839780093964217&ths=true';
-    const hilotFormUrl = 'https://docs.google.com/forms/d/154L4q9KBYXxq1mGQAHb2YPH0M8N9cLYzz0ZfL9Zja2I/edit';
 
     function selectCourse(courseName) {
       const select = document.getElementById('course');
@@ -317,10 +303,6 @@
       }
       if (courseName === 'Computer Systems Servicing NC II') {
         window.open(computerSystemsFormUrl, '_blank', 'noopener,noreferrer');
-        return;
-      }
-      if (courseName === 'Hilot (Wellness Massage) NC II') {
-        window.open(hilotFormUrl, '_blank', 'noopener,noreferrer');
       }
     }
 
@@ -359,7 +341,7 @@
         const course = link.getAttribute('data-course');
         if (!course) return;
 
-        if (course === 'Housekeeping NC II' || course === 'Computer Systems Servicing NC II' || course === 'Hilot (Wellness Massage) NC II') {
+        if (course === 'Housekeeping NC II' || course === 'Computer Systems Servicing NC II') {
           event.preventDefault();
           selectCourse(course);
           openCourseForm(course);
@@ -389,12 +371,6 @@
       if (selectedCourse.startsWith('Computer Systems Servicing NC II')) {
         document.getElementById('formStatus').textContent = 'Opening the Computer Systems Servicing course form...';
         window.open(computerSystemsFormUrl, '_blank', 'noopener,noreferrer');
-        return;
-      }
-
-      if (selectedCourse.startsWith('Hilot (Wellness Massage) NC II')) {
-        document.getElementById('formStatus').textContent = 'Opening the Hilot course form...';
-        window.open(hilotFormUrl, '_blank', 'noopener,noreferrer');
         return;
       }
 

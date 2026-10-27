@@ -188,13 +188,20 @@
             <span class="duration">280 HOURS</span>
             <a class="btn btn-primary reserve-link" href="https://docs.google.com/forms/d/1PEl_gmeqH9uXHCN-pP46xIUnNqQz5dcrJAdod2x_-ko/edit?usp=forms_home&ouid=112049839780093964217&ths=true" target="_blank" rel="noopener" data-course="Computer Systems Servicing NC II">Reserve this course</a>
           </article>
-          <article class="course">
-            <div class="course-icon" aria-hidden="true">🌿</div>
-            <h3>Hilot (Wellness Massage) NC II</h3>
-            <p>Build foundational skills in wellness massage practices, client care, and a professional service setting.</p>
-            <span class="duration">120 HOURS</span>
-            <a class="btn btn-primary reserve-link" href="https://docs.google.com/forms/d/154L4q9KBYXxq1mGQAHb2YPH0M8N9cLYzz0ZfL9Zja2I/edit</a>
-          </article>
+         <article class="course">
+  <div class="course-icon" aria-hidden="true">🌿</div>
+  <h3>Hilot (Wellness Massage) NC II</h3>
+  <p>Build foundational skills in wellness massage practices, client care, and a professional service setting.</p>
+  <span class="duration">120 HOURS</span>
+  <a
+    class="btn btn-primary reserve-link"
+    href="https://docs.google.com/forms/d/154L4q9KBYXxq1mGQAHb2YPH0M8N9cLYzz0ZfL9Zja2I/edit"
+    target="_blank"
+    rel="noopener"
+    data-course="Hilot (Wellness Massage) NC II">
+    Reserve this course
+  </a>
+</article>
         </div>
       </div>
     </section>
@@ -296,114 +303,106 @@
   </footer>
 
   <script>
-    const housekeepingFormUrl = 'https://docs.google.com/forms/d/13_Lfs4rAhhcsTwsM2qffZd9b_VcKExWxwHmaCvqPicw/edit';
-    const computerSystemsFormUrl = 'https://docs.google.com/forms/d/1PEl_gmeqH9uXHCN-pP46xIUnNqQz5dcrJAdod2x_-ko/edit?usp=forms_home&ouid=112049839780093964217&ths=true';
-    const hilotFormUrl = https://docs.google.com/forms/d/154L4q9KBYXxq1mGQAHb2YPH0M8N9cLYzz0ZfL9Zja2I/edit;
+   const housekeepingFormUrl = 'https://docs.google.com/forms/d/13_Lfs4rAhhcsTwsM2qffZd9b_VcKExWxwHmaCvqPicw/edit';
+const computerSystemsFormUrl = 'https://docs.google.com/forms/d/1PEl_gmeqH9uXHCN-pP46xIUnNqQz5dcrJAdod2x_-ko/edit?usp=forms_home&ouid=112049839780093964217&ths=true';
+const hilotFormUrl = 'https://docs.google.com/forms/d/154L4q9KBYXxq1mGQAHb2YPH0M8N9cLYzz0ZfL9Zja2I/edit';
 
-    function selectCourse(courseName) {
-      const select = document.getElementById('course');
-      if (!select) return;
-      const match = Array.from(select.options).find(option => option.textContent.startsWith(courseName));
-      if (match) {
-        select.value = match.value;
-      }
-    }
+function selectCourse(courseName) {
+  const select = document.getElementById('course');
+  if (!select) return;
+  const match = Array.from(select.options).find(option => option.textContent.startsWith(courseName));
+  if (match) {
+    select.value = match.value;
+  }
+}
 
-    function openCourseForm(courseName) {
-      if (courseName === 'Housekeeping NC II') {
-        window.open(housekeepingFormUrl, '_blank', 'noopener,noreferrer');
-        return;
-      }
-      if (courseName === 'Computer Systems Servicing NC II') {
-        window.open(computerSystemsFormUrl, '_blank', 'noopener,noreferrer');
-      }
-    }
+function openCourseForm(courseName) {
+  if (courseName === 'Housekeeping NC II') {
+    window.open(housekeepingFormUrl, '_blank', 'noopener,noreferrer');
+    return;
+  }
+  if (courseName === 'Computer Systems Servicing NC II') {
+    window.open(computerSystemsFormUrl, '_blank', 'noopener,noreferrer');
+    return;
+  }
+  if (courseName === 'Hilot (Wellness Massage) NC II') {
+    window.open(hilotFormUrl, '_blank', 'noopener,noreferrer');
+    return;
+  }
+}
 
-    function scrollToReservation() {
-      const section = document.getElementById('reservation');
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
+function scrollToReservation() {
+  const section = document.getElementById('reservation');
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 
-    function openReservationMail(subject, body) {
-      const mailto = 'mailto:' + academyEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      const gmailFallback = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(academyEmail) + '&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+document.querySelectorAll('[data-course]').forEach(function (link) {
+  link.addEventListener('click', function (event) {
+    const course = link.getAttribute('data-course');
+    if (!course) return;
 
-      document.getElementById('formStatus').textContent = 'Opening your email app. If nothing opens, a web mail window will appear.';
-
-      const tempLink = document.createElement('a');
-      tempLink.href = mailto;
-      tempLink.style.display = 'none';
-      document.body.appendChild(tempLink);
-      tempLink.click();
-      tempLink.remove();
-
-      window.setTimeout(function () {
-        const fallbackWindow = window.open(gmailFallback, '_blank', 'noopener,noreferrer');
-        if (!fallbackWindow) {
-          window.location.href = gmailFallback;
-        }
-      }, 1200);
-    }
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    document.querySelectorAll('[data-course]').forEach(function (link) {
-      link.addEventListener('click', function (event) {
-        const course = link.getAttribute('data-course');
-        if (!course) return;
-
-        if (course === 'Housekeeping NC II' || course === 'Computer Systems Servicing NC II') {
-          event.preventDefault();
-          selectCourse(course);
-          openCourseForm(course);
-          return;
-        }
-
-        event.preventDefault();
-        selectCourse(course);
-        scrollToReservation();
-      });
-    });
-
-    document.getElementById('reservationForm').addEventListener('submit', function (event) {
+    if (
+      course === 'Housekeeping NC II' ||
+      course === 'Computer Systems Servicing NC II' ||
+      course === 'Hilot (Wellness Massage) NC II'
+    ) {
       event.preventDefault();
-      const form = event.currentTarget;
-      if (!form.reportValidity()) return;
+      selectCourse(course);
+      openCourseForm(course);
+      return;
+    }
 
-      const data = new FormData(form);
-      const selectedCourse = String(data.get('course') || '');
+    event.preventDefault();
+    selectCourse(course);
+    scrollToReservation();
+  });
+});
 
-      if (selectedCourse.startsWith('Housekeeping NC II')) {
-        document.getElementById('formStatus').textContent = 'Opening the Housekeeping course form...';
-        window.open(housekeepingFormUrl, '_blank', 'noopener,noreferrer');
-        return;
-      }
+document.getElementById('reservationForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
 
-      if (selectedCourse.startsWith('Computer Systems Servicing NC II')) {
-        document.getElementById('formStatus').textContent = 'Opening the Computer Systems Servicing course form...';
-        window.open(computerSystemsFormUrl, '_blank', 'noopener,noreferrer');
-        return;
-      }
+  const data = new FormData(form);
+  const selectedCourse = String(data.get('course') || '');
 
-      const subject = 'Training Reservation Inquiry - ' + selectedCourse;
-      const body = [
-        'JBL TECHNICAL SKILLS ACADEMY, INC. — RESERVATION INQUIRY',
-        '',
-        'Full name: ' + data.get('fullName'),
-        'Contact number: ' + data.get('phone'),
-        'Email address: ' + data.get('email'),
-        'Training program: ' + selectedCourse,
-        'Preferred start date: ' + (data.get('preferredDate') || 'Not specified'),
-        'Preferred contact method: ' + data.get('contactMethod'),
-        '',
-        'Questions or additional details:',
-        data.get('message') || 'None provided'
-      ].join('\n');
+  if (selectedCourse.startsWith('Housekeeping NC II')) {
+    document.getElementById('formStatus').textContent = 'Opening the Housekeeping course form...';
+    window.open(housekeepingFormUrl, '_blank', 'noopener,noreferrer');
+    return;
+  }
 
-      openReservationMail(subject, body);
-    });
+  if (selectedCourse.startsWith('Computer Systems Servicing NC II')) {
+    document.getElementById('formStatus').textContent = 'Opening the Computer Systems Servicing course form...';
+    window.open(computerSystemsFormUrl, '_blank', 'noopener,noreferrer');
+    return;
+  }
+
+  if (selectedCourse.startsWith('Hilot (Wellness Massage) NC II')) {
+    document.getElementById('formStatus').textContent = 'Opening the Hilot course form...';
+    window.open(hilotFormUrl, '_blank', 'noopener,noreferrer');
+    return;
+  }
+
+  const subject = 'Training Reservation Inquiry - ' + selectedCourse;
+  const body = [
+    'JBL TECHNICAL SKILLS ACADEMY, INC. — RESERVATION INQUIRY',
+    '',
+    'Full name: ' + data.get('fullName'),
+    'Contact number: ' + data.get('phone'),
+    'Email address: ' + data.get('email'),
+    'Training program: ' + selectedCourse,
+    'Preferred start date: ' + (data.get('preferredDate') || 'Not specified'),
+    'Preferred contact method: ' + data.get('contactMethod'),
+    '',
+    'Questions or additional details:',
+    data.get('message') || 'None provided'
+  ].join('\n');
+
+  openReservationMail(subject, body);
+});
   </script>
 </body>
 </html>
